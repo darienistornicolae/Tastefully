@@ -11,7 +11,8 @@ import SwiftUI
 struct TastefullyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeScreenView()
+                .preferredColorScheme(.dark)
         }
     }
 }
