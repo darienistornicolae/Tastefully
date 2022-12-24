@@ -10,6 +10,13 @@
 		011680EF294A030200A80811 /* RecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 011680EE294A030200A80811 /* RecipeCardView.swift */; };
 		01206A59294A32B5008353B7 /* SearchRecipeByIngredientsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01206A58294A32B5008353B7 /* SearchRecipeByIngredientsModel.swift */; };
 		01206A5C294A32E3008353B7 /* APICall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01206A5B294A32E3008353B7 /* APICall.swift */; };
+		013FB60E2950B83500BF60D2 /* ButtomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013FB60D2950B83500BF60D2 /* ButtomTabView.swift */; };
+		014C2E212957576F0097C6A8 /* SummarizedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014C2E202957576F0097C6A8 /* SummarizedRecipe.swift */; };
+		01A56E71294B5F5200CA6089 /* FloatingBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E70294B5F5200CA6089 /* FloatingBar.swift */; };
+		01A56E73294B621500CA6089 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E72294B621500CA6089 /* ProfileView.swift */; };
+		01A56E75294B623100CA6089 /* RecipeDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A56E74294B623100CA6089 /* RecipeDetailsView.swift */; };
+		01B9FE3E294E2B9D00C4EFD9 /* RecipeDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B9FE3D294E2B9D00C4EFD9 /* RecipeDetailsModel.swift */; };
+		01BFEB14294CA7BC001B61CD /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BFEB13294CA7BC001B61CD /* RecipesViewModel.swift */; };
 		01E153B12948C93800258EA6 /* TastefullyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E153B02948C93800258EA6 /* TastefullyApp.swift */; };
 		01E153B52948C93900258EA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E153B42948C93900258EA6 /* Assets.xcassets */; };
 		01E153B82948C93900258EA6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E153B72948C93900258EA6 /* Preview Assets.xcassets */; };
@@ -21,6 +28,13 @@
 		011680EE294A030200A80811 /* RecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardView.swift; sourceTree = "<group>"; };
 		01206A58294A32B5008353B7 /* SearchRecipeByIngredientsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecipeByIngredientsModel.swift; sourceTree = "<group>"; };
 		01206A5B294A32E3008353B7 /* APICall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICall.swift; sourceTree = "<group>"; };
+		013FB60D2950B83500BF60D2 /* ButtomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtomTabView.swift; sourceTree = "<group>"; };
+		014C2E202957576F0097C6A8 /* SummarizedRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummarizedRecipe.swift; sourceTree = "<group>"; };
+		01A56E70294B5F5200CA6089 /* FloatingBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingBar.swift; sourceTree = "<group>"; };
+		01A56E72294B621500CA6089 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		01A56E74294B623100CA6089 /* RecipeDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsView.swift; sourceTree = "<group>"; };
+		01B9FE3D294E2B9D00C4EFD9 /* RecipeDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailsModel.swift; sourceTree = "<group>"; };
+		01BFEB13294CA7BC001B61CD /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		01E153AD2948C93800258EA6 /* Tastefully.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tastefully.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E153B02948C93800258EA6 /* TastefullyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastefullyApp.swift; sourceTree = "<group>"; };
 		01E153B42948C93900258EA6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,6 +58,8 @@
 			isa = PBXGroup;
 			children = (
 				01206A58294A32B5008353B7 /* SearchRecipeByIngredientsModel.swift */,
+				01B9FE3D294E2B9D00C4EFD9 /* RecipeDetailsModel.swift */,
+				014C2E202957576F0097C6A8 /* SummarizedRecipe.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -52,6 +68,7 @@
 			isa = PBXGroup;
 			children = (
 				01206A5B294A32E3008353B7 /* APICall.swift */,
+				01BFEB13294CA7BC001B61CD /* RecipesViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -99,6 +116,10 @@
 			children = (
 				01E153BE2948C99F00258EA6 /* HomeScreenView.swift */,
 				011680EE294A030200A80811 /* RecipeCardView.swift */,
+				01A56E70294B5F5200CA6089 /* FloatingBar.swift */,
+				01A56E72294B621500CA6089 /* ProfileView.swift */,
+				01A56E74294B623100CA6089 /* RecipeDetailsView.swift */,
+				013FB60D2950B83500BF60D2 /* ButtomTabView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -181,12 +202,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01A56E73294B621500CA6089 /* ProfileView.swift in Sources */,
 				011680EF294A030200A80811 /* RecipeCardView.swift in Sources */,
+				01BFEB14294CA7BC001B61CD /* RecipesViewModel.swift in Sources */,
 				01206A59294A32B5008353B7 /* SearchRecipeByIngredientsModel.swift in Sources */,
 				01206A5C294A32E3008353B7 /* APICall.swift in Sources */,
+				01A56E75294B623100CA6089 /* RecipeDetailsView.swift in Sources */,
+				01B9FE3E294E2B9D00C4EFD9 /* RecipeDetailsModel.swift in Sources */,
+				014C2E212957576F0097C6A8 /* SummarizedRecipe.swift in Sources */,
 				01E153B12948C93800258EA6 /* TastefullyApp.swift in Sources */,
+				01A56E71294B5F5200CA6089 /* FloatingBar.swift in Sources */,
 				01E153BF2948C99F00258EA6 /* HomeScreenView.swift in Sources */,
 				01E153C32948CA0300258EA6 /* ColorExtensions.swift in Sources */,
+				013FB60E2950B83500BF60D2 /* ButtomTabView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

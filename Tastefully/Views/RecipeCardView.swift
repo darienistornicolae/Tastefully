@@ -8,17 +8,25 @@
 import SwiftUI
 
 struct RecipeCardView: View {
+    @StateObject var viewModel: RecipesViewModel
+    
     var body: some View {
             VStack() {
                 HStack() {
-                    Image("recipe")
-                        .cornerRadius(20)
+                    AsyncImage(url: URL(string: viewModel.recipeImage))
+                        .scaledToFill()
+                            .frame(width: 150, height: 150)
+                            .cornerRadius(20)
                     Spacer()
                     
                     HStack {
                         VStack(alignment: .leading, spacing: 40) {
-                                Text("Title")
+                            Text(viewModel.recipeTitle)
+                                .multilineTextAlignment(.leading)
+                                .font(.caption)
                                 .fontWeight(.bold)
+                                .fontWidth(.compressed)
+                                
                                 
                                 Text("Description")
                                 .fontWeight(.bold)
@@ -44,7 +52,7 @@ struct RecipeCardView: View {
 
 struct RecipeCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeCardView()
+        RecipeCardView(viewModel: RecipesViewModel())
             .previewLayout(.sizeThatFits)
     }
 }

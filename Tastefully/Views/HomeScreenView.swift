@@ -8,12 +8,16 @@
 import SwiftUI
 
 struct HomeScreenView: View {
+    
+    @StateObject var viewModel = RecipesViewModel()
+    
+    
     var body: some View {
         NavigationView {
             
             ZStack {
-                Color.backgroundColor.ignoresSafeArea(.all)
                 
+            Color.backgroundColor.ignoresSafeArea(.all)
             ScrollView {
                     VStack {
                         Text("Recipes")
@@ -21,18 +25,19 @@ struct HomeScreenView: View {
                             .fontWeight(.bold)
                             .padding(.top, 30)
                             .padding(.trailing, 250)
-                        
-                        RecipeCardView()
+                       
+                       RecipeCardView(viewModel: RecipesViewModel())
                         Spacer()
                     }
-                    
                 }
                 .navigationTitle("Tastefully")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbarBackground(Color.baseColor, for: .automatic)
                 .toolbarBackground(.visible, for: .automatic)
                 .multilineTextAlignment(.trailing)
+                
             }
+            
         }
     }
 }
@@ -50,3 +55,4 @@ fileprivate extension HomeScreenView {
         
     }
 }
+

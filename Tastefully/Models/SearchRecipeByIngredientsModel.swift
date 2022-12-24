@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - SearchRecipeByIngredientsModelElement
-struct SearchRecipeByIngredientsModelElement: Codable {
+struct SearchRecipeByIngredientsModelElement: Codable, Identifiable {
     let id: Int
     let image: String
     let imageType: String
@@ -21,7 +21,7 @@ struct SearchRecipeByIngredientsModelElement: Codable {
 }
 
 // MARK: - SedIngredient
-struct SedIngredient: Codable {
+struct SedIngredient: Codable, Identifiable {
     let aisle: String
     let amount: Double
     let id: Int
@@ -32,4 +32,3 @@ struct SedIngredient: Codable {
     let extendedName: String?
 }
 
-typealias SearchRecipeByIngredientsModel = [SearchRecipeByIngredientsModelElement]
