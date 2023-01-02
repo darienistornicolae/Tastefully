@@ -45,8 +45,7 @@ class RecipesViewModel: ObservableObject {
         
         apiService.$recipeSummarized
             .map { description in
-                var recipeDescription = description.summary
-                return recipeDescription
+                return description.summary
                 
             }
             .sink { [weak self] newString in

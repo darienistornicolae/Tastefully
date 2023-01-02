@@ -13,6 +13,8 @@ struct ButtomTabView: View {
     {
         UITabBar.appearance().backgroundColor = UIColor.init(Color.orange)
         UITabBar.appearance().barTintColor = UIColor.init(Color.orange)
+        UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
+
     }
     var body: some View {
         

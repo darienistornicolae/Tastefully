@@ -10,6 +10,9 @@ import SwiftUI
 struct RecipeDetailsView: View {
     
  @StateObject var viewModel: RecipesViewModel
+    init(viewModel: RecipesViewModel) {
+        self._viewModel = StateObject(wrappedValue: RecipesViewModel())
+    }
     
     var body: some View {
         NavigationView {
@@ -19,20 +22,25 @@ struct RecipeDetailsView: View {
                     VStack{
                         AsyncImage(url: URL(string: viewModel.recipeImage))
                             .scaledToFill()
+                            .cornerRadius(10)
+                            .padding(.top)
+                            
                         
-                        Text(viewModel.recipeTitle)
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding(.top, 30)
-                            .padding(.trailing, 240)
+                            Text(viewModel.recipeTitle)
+                                .font(.title2)
+                                .fontWeight(.bold)
                         
                         HStack {
-                            Text(viewModel.recipeDescription)
-                                .multilineTextAlignment(.trailing)
+                            Text("viewModel.recipeDescriptionviewModel")
+                                .multilineTextAlignment(.leading)
+                                .padding(.top)
+                                
     
                         }
-                        Text("Ingredients used")
-                            .padding(.top)
+                            Text("Ingredients used")
+                                .padding(.top)
+                        
+                        
                     }
                 }
                 .navigationTitle("Tastefully")

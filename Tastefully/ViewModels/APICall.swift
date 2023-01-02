@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 class APICall: ObservableObject {
+    
+    //MARK: Properties
     @Published var recipeDetails: RecipeDetailsModel
     @Published var recipes: [SearchRecipeByIngredientsModelElement] = []
     @Published var recipeSummarized: SummarizedRecipeModel
@@ -21,8 +23,8 @@ class APICall: ObservableObject {
         self.cancellables = cancellables
         self.recipeSummarized = recipeSummarized
         searchRecipes(ingredients: "", number: 0)
-        getRecipeDetails()
-        getRecipeSummary(id: 657579)
+       // getRecipeDetails()
+        //getRecipeSummary(id: 657579)
     }
     
     func searchRecipes(ingredients: String, number: Int) {
@@ -74,7 +76,7 @@ class APICall: ObservableObject {
         }
     
     func getRecipeSummary(id: Int) {
-        guard let url = URL(string: "https://api.spoonacular.com/recipes/657579/summary&\(apiKey)") else {return}
+        guard let url = URL(string: "https://api.spoonacular.com/recipes/657579/\(apiKey)&summary") else {return}
         
         URLSession.shared.dataTaskPublisher(for: url)
             .receive(on: DispatchQueue.main)

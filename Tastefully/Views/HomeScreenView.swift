@@ -25,8 +25,9 @@ struct HomeScreenView: View {
                             .fontWeight(.bold)
                             .padding(.top, 30)
                             .padding(.trailing, 250)
-                       
-                       RecipeCardView(viewModel: RecipesViewModel())
+                        
+                        
+                        RecipeCardView(viewModel: RecipesViewModel())
                         Spacer()
                     }
                 }

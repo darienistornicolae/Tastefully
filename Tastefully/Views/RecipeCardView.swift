@@ -9,6 +9,9 @@ import SwiftUI
 
 struct RecipeCardView: View {
     @StateObject var viewModel: RecipesViewModel
+    init(viewModel: RecipesViewModel) {
+        self._viewModel = StateObject(wrappedValue: RecipesViewModel())
+    }
     
     var body: some View {
             VStack() {
@@ -22,13 +25,11 @@ struct RecipeCardView: View {
                     HStack {
                         VStack(alignment: .leading, spacing: 40) {
                             Text(viewModel.recipeTitle)
-                                .multilineTextAlignment(.leading)
-                                .font(.caption)
+                                .font(.subheadline)
                                 .fontWeight(.bold)
-                                .fontWidth(.compressed)
                                 
                                 
-                                Text("Description")
+                            Text(viewModel.recipeDescription)
                                 .fontWeight(.bold)
                             
                                 Text("Pairing")

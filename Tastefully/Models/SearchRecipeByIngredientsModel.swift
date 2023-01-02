@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - SearchRecipeByIngredientsModelElement
-struct SearchRecipeByIngredientsModelElement: Codable, Identifiable {
+struct SearchRecipeByIngredientsModelElement: Codable, Hashable, Identifiable {
     let id: Int
     let image: String
     let imageType: String
@@ -21,7 +21,7 @@ struct SearchRecipeByIngredientsModelElement: Codable, Identifiable {
 }
 
 // MARK: - SedIngredient
-struct SedIngredient: Codable, Identifiable {
+struct SedIngredient: Codable, Hashable {
     let aisle: String
     let amount: Double
     let id: Int
@@ -30,5 +30,20 @@ struct SedIngredient: Codable, Identifiable {
     let name, original, originalName, unit: String
     let unitLong, unitShort: String
     let extendedName: String?
+    
+    init(aisle: String, amount: Double, id: Int, image: String, meta: [String], name: String, original: String, originalName: String, unit: String, unitLong: String, unitShort: String, extendedName: String?) {
+        self.aisle = aisle
+        self.amount = amount
+        self.id = id
+        self.image = image
+        self.meta = meta
+        self.name = name
+        self.original = original
+        self.originalName = originalName
+        self.unit = unit
+        self.unitLong = unitLong
+        self.unitShort = unitShort
+        self.extendedName = extendedName
+    }
 }
 

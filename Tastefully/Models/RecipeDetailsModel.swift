@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RecipeDetailsModel: Codable, Identifiable {
+struct RecipeDetailsModel: Codable, Identifiable, Hashable {
     let id: Int
     let title: String
     let image: String
@@ -26,7 +26,7 @@ struct RecipeDetailsModel: Codable, Identifiable {
 }
 
 // MARK: - ExtendedIngredient
-struct ExtendedIngredient: Codable {
+struct ExtendedIngredient: Codable, Hashable {
     let aisle: String
     let amount: Double
     let consitency: Consitency
@@ -37,24 +37,24 @@ struct ExtendedIngredient: Codable {
     let name, original, originalName, unit: String
 }
 
-enum Consitency: String, Codable {
+enum Consitency: String, Codable, Hashable {
     case liquid = "liquid"
     case solid = "solid"
 }
 
 // MARK: - Measures
-struct Measures: Codable {
+struct Measures: Codable, Hashable {
     let metric, us: Metric
 }
 
 // MARK: - Metric
-struct Metric: Codable {
+struct Metric: Codable, Hashable {
     let amount: Double
     let unitLong, unitShort: String
 }
 
 // MARK: - WinePairing
-struct WinePairing: Codable {
+struct WinePairing: Codable, Hashable {
     let pairedWines: [String]
     let pairingText: String
 }
