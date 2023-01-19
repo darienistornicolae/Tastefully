@@ -43,10 +43,15 @@ class RecipesViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
+        
+    }
+    
+    func showRecipeDescription() {
         apiService.$recipeSummarized
             .map { description in
-                return description.summary
-                
+                var recipeSummary = description.summary.description
+                return recipeSummary
+                //return description.summary
             }
             .sink { [weak self] newString in
                 self?.recipeDescription = newString

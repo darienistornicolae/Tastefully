@@ -24,7 +24,7 @@ class APICall: ObservableObject {
         self.recipeSummarized = recipeSummarized
         searchRecipes(ingredients: "", number: 0)
        // getRecipeDetails()
-        //getRecipeSummary(id: 657579)
+        getRecipeSummary(id: 657579)
     }
     
     func searchRecipes(ingredients: String, number: Int) {
