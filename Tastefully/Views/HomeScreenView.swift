@@ -34,7 +34,6 @@ struct HomeScreenView: View {
                 .navigationTitle("Tastefully")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbarBackground(Color.baseColor, for: .automatic)
-                .toolbarBackground(.visible, for: .automatic)
                 .multilineTextAlignment(.trailing)
                 
             }

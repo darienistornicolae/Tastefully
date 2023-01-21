@@ -14,12 +14,17 @@ class RecipesViewModel: ObservableObject {
     @Published var recipeTitle: String = ""
     @Published var recipeImage: String = ""
     @Published var recipeDescription: String = ""
-    let apiService = APICall(recipes: SearchRecipeByIngredientsModelElement(id: 0, image: "", imageType: "", likes: 0, missedIngredientCount: 0, missedIngredients: [SedIngredient](), title: "", unusedIngredients: [SedIngredient](), usedIngredientCount: 0, usedIngredients: [SedIngredient]()), recipeDetails: RecipeDetailsModel(id: 0, title: "", image: "", imageType: "", readyInMinutes: 0, license: "", healthScore: 0, gaps: "", glutenFree: false, instructions: "", vegetarian: false, veryHealthy: false, dishTypes: [""], extendedIngredients: [ExtendedIngredient](), summary: "", winePairing: WinePairing(pairedWines: [""], pairingText: "")), recipeSummarized: SummarizedRecipeModel(id: 0, summary: "", title: ""))
+    let apiService = APICall(recipes: SearchRecipeByIngredientsModelElement(
+        id: 0,
+        image: "",
+        imageType: "", likes: 0, missedIngredientCount: 0, missedIngredients: [SedIngredient](), title: "", unusedIngredients: [SedIngredient](), usedIngredientCount: 0, usedIngredients: [SedIngredient]()), recipeDetails: RecipeDetailsModel(
+            id: 0, title: "", image: "", readyInMinutes: 0, healthScore: 0, glutenFree: false, instructions: "", vegetarian: false, veryHealthy: false, dishTypes: [""], extendedIngredients: [ExtendedIngredient](), summary: "", winePairing: WinePairing(pairedWines: [""], pairingText: "")), recipeSummarized: SummarizedRecipeModel(id: 0, summary: "", title: ""))
     
     @Published var isSearching: Bool = false
     
     init() {
-        setupRecipes()
+//        setupRecipes()
+//        showRecipeDescription()
     }
     
     func setupRecipes() {
@@ -49,7 +54,9 @@ class RecipesViewModel: ObservableObject {
     func showRecipeDescription() {
         apiService.$recipeSummarized
             .map { description in
-                var recipeSummary = description.summary.description
+                var recipeSummary = description.summary
+                print(description.title)
+                print(description.summary)
                 return recipeSummary
                 //return description.summary
             }

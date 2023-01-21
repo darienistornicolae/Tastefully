@@ -23,8 +23,8 @@ class APICall: ObservableObject {
         self.cancellables = cancellables
         self.recipeSummarized = recipeSummarized
         searchRecipes(ingredients: "", number: 0)
-       // getRecipeDetails()
-        getRecipeSummary(id: 657579)
+       getRecipeDetails()
+        getRecipeSummary(id:324 )
     }
     
     func searchRecipes(ingredients: String, number: Int) {
@@ -49,11 +49,11 @@ class APICall: ObservableObject {
                 print(returnedRecipes)
             }
             .store(in: &cancellables)
-        print(cancellables)
+        
         }
     
     func getRecipeDetails() {
-        guard let url = URL(string: "https://api.spoonacular.com/recipes/657579/information?includeNutrition=true&\(apiKey)") else {return}
+        guard let url = URL(string: "https://api.spoonacular.com/recipes/657579/information?includeNutrition=true&apiKey=\(apiKey)") else {return}
         
         URLSession.shared.dataTaskPublisher(for: url)
             .receive(on: DispatchQueue.main)
@@ -72,11 +72,11 @@ class APICall: ObservableObject {
                 print(returnedRecipesDetails)
             }
             .store(in: &cancellables)
-        print(cancellables)
+        
         }
     
     func getRecipeSummary(id: Int) {
-        guard let url = URL(string: "https://api.spoonacular.com/recipes/657579/\(apiKey)&summary") else {return}
+        guard let url = URL(string: "https://api.spoonacular.com/recipes/657579/summary?apiKey=\(apiKey)") else {return}
         
         URLSession.shared.dataTaskPublisher(for: url)
             .receive(on: DispatchQueue.main)
@@ -89,13 +89,15 @@ class APICall: ObservableObject {
                     print(completion)
                 case .failure(let error):
                     print("\(error)")
+                    print()
                 }
             } receiveValue: { [weak self] returnedRecipesDetails in
                 self?.recipeSummarized = returnedRecipesDetails
                 print(returnedRecipesDetails)
+                print()
             }
             .store(in: &cancellables)
-        print(cancellables)
+        
         }
     }
     
