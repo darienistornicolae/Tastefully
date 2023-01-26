@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct RecipeCardView: View {
-    
-    var listings: [String] = ["malbec", "pinot noir", "rosu negru"]
-    
+     let recipe: RecipeModel
+   
+    init(recipe: RecipeModel) {
+        self.recipe = recipe
+    }
     
     var body: some View {
         VStack() {
             HStack() {
-                AsyncImage(url: URL(string: "viewModel.recipeImage"))
+                AsyncImage(url: URL(string: recipe.image))
                     .scaledToFill()
                     .frame(width: 150, height: 150)
                     .cornerRadius(20)
@@ -23,17 +25,9 @@ struct RecipeCardView: View {
                 
                 HStack {
                     VStack(alignment: .leading, spacing: 40) {
-                        Text("viewModel.recipeTitle")
+                        Text(recipe.title)
                             .font(.subheadline)
                             .fontWeight(.bold)
-                        
-                        //                            HStack {
-                        //                                ForEach(viewModel.paierdWine, id: \.self) { wine in
-                        //                                    Text(wine)
-                        //                                        .fontWeight(.bold)
-                        //                                        .font(.caption)
-                        //                                }
-                        //                            }
                         
                     }
                     Spacer()
@@ -54,7 +48,7 @@ struct RecipeCardView: View {
 
 struct RecipeCardView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeCardView()
+        RecipeCardView(recipe: .mock1())
             .previewLayout(.sizeThatFits)
     }
 }

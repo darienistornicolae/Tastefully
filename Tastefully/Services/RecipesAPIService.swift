@@ -12,12 +12,12 @@ class RecipesAPIService {
     
     //MARK: Properties
     @Published var recipeDetails: RecipeDetailsModel
-    @Published var recipes: [SearchRecipeByIngredientsModelElement] = []
+    @Published var recipes: [RecipeModel] = []
     @Published var recipeSummarized: SummarizedRecipeModel
     var cancellables = Set<AnyCancellable>()
     private let apiKey = "2ee7e33fb5954e30a49382948c15d24a" //"e4d7f1e3dd884f1fa575e12697f19d33"
     
-    init(recipes: SearchRecipeByIngredientsModelElement, cancellables: Set<AnyCancellable> = Set<AnyCancellable>(), recipeDetails: RecipeDetailsModel, recipeSummarized: SummarizedRecipeModel) {
+    init(recipes: RecipeModel, cancellables: Set<AnyCancellable> = Set<AnyCancellable>(), recipeDetails: RecipeDetailsModel, recipeSummarized: SummarizedRecipeModel) {
         self.recipeDetails = recipeDetails
         self.recipes = [recipes]
         self.cancellables = cancellables
@@ -35,7 +35,7 @@ class RecipesAPIService {
         URLSession.shared.dataTaskPublisher(for: url)
             .receive(on: DispatchQueue.main)
             .tryMap(handleOutput)
-            .decode(type: [SearchRecipeByIngredientsModelElement].self, decoder: JSONDecoder())
+            .decode(type: [RecipeModel].self, decoder: JSONDecoder())
             .sink { completion in
                 switch completion {
                 case .finished:

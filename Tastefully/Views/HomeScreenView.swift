@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeScreenView: View {
-    
+    @StateObject var viewModel = HomeScreenViewModel()
     var body: some View {
         NavigationView {
             
@@ -17,15 +17,10 @@ struct HomeScreenView: View {
                 Color.backgroundColor.ignoresSafeArea(.all)
                 ScrollView {
                     VStack {
-                        Text("Recipes")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding(.top, 30)
-                            .padding(.trailing, 250)
                         
-                        //                     ForEach(RecipeCardView(viewModel: RecipesViewModel()), id: \.self) { recipe in
-                        //                            recipe
-                        //                        }
+                        ForEach(viewModel.recipes, id: \.self) { recipe in
+                            RecipeCardView(recipe: recipe)
+                        }
                         
                         Spacer()
                     }
