@@ -9,27 +9,24 @@ import SwiftUI
 
 struct HomeScreenView: View {
     
-    @StateObject var viewModel = RecipesViewModel()
-    
-    
     var body: some View {
         NavigationView {
             
             ZStack {
                 
-            Color.backgroundColor.ignoresSafeArea(.all)
-            ScrollView {
+                Color.backgroundColor.ignoresSafeArea(.all)
+                ScrollView {
                     VStack {
                         Text("Recipes")
                             .font(.title)
                             .fontWeight(.bold)
                             .padding(.top, 30)
                             .padding(.trailing, 250)
-                       
-//                     ForEach(RecipeCardView(viewModel: RecipesViewModel()), id: \.self) { recipe in
-//                            recipe
-//                        }
-                        RecipeCardView(viewModel: RecipesViewModel())
+                        
+                        //                     ForEach(RecipeCardView(viewModel: RecipesViewModel()), id: \.self) { recipe in
+                        //                            recipe
+                        //                        }
+                        
                         Spacer()
                     }
                 }

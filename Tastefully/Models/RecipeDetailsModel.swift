@@ -25,7 +25,7 @@ struct RecipeDetailsModel: Codable, Identifiable, Hashable {
 // MARK: - ExtendedIngredient
 struct ExtendedIngredient: Codable, Hashable {
     let amount: Double
-//    let consitency: Consitency
+    //    let consitency: Consitency
     let id: Int
     let image: String
     let measures: Measures

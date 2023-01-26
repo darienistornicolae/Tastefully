@@ -17,10 +17,10 @@ struct ProfileView: View {
                     
                     Image("profile")
                         .resizable()
-                       // .aspectRatio(contentMode: .fit)
+                    // .aspectRatio(contentMode: .fit)
                         .scaledToFill()
                         .frame(width: 150, height: 150)
-                        //.cornerRadius(100)
+                    //.cornerRadius(100)
                         .clipShape(Circle())
                         .padding(.top, 40)
                     
@@ -40,7 +40,7 @@ struct ProfileView: View {
                     }
                     .padding(.top, 40)
                     
-                        RoundedRectangle(cornerRadius: 20)
+                    RoundedRectangle(cornerRadius: 20)
                         .stroke(Color.baseColor)
                         .frame(width: 350, height: 1)
                         .padding(.bottom)
@@ -52,13 +52,13 @@ struct ProfileView: View {
                     
                     
                     
-                        
-                    }
-                    .navigationTitle("Tastefully")
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbarBackground(Color.baseColor, for: .automatic)
-                    .toolbarBackground(.visible, for: .automatic)
-                    .multilineTextAlignment(.trailing)
+                    
+                }
+                .navigationTitle("Tastefully")
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbarBackground(Color.baseColor, for: .automatic)
+                .toolbarBackground(.visible, for: .automatic)
+                .multilineTextAlignment(.trailing)
             }
         }
     }
@@ -78,19 +78,19 @@ fileprivate extension ProfileView {
                 
                 HStack {
                     VStack(alignment: .leading, spacing: 35) {
-                            Text("Name: ")
-                            .fontWeight(.bold)
-                            .font(.title2)
-                            
-                            Text("Email: ")
+                        Text("Name: ")
                             .fontWeight(.bold)
                             .font(.title2)
                         
-                            Text("Password: ")
+                        Text("Email: ")
                             .fontWeight(.bold)
                             .font(.title2)
                         
-                            Text("Birthdate: ")
+                        Text("Password: ")
+                            .fontWeight(.bold)
+                            .font(.title2)
+                        
+                        Text("Birthdate: ")
                             .fontWeight(.bold)
                             .font(.title2)
                     }

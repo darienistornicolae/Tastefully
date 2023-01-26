@@ -22,13 +22,13 @@ class APICall: ObservableObject {
         self.recipes = [recipes]
         self.cancellables = cancellables
         self.recipeSummarized = recipeSummarized
-//        searchRecipes(ingredients: "", number: 0)
-//        getRecipeDetails()
-//        getRecipeSummary(id:324 )
+        //        searchRecipes(ingredients: "", number: 0)
+        //        getRecipeDetails()
+        //        getRecipeSummary(id:324 )
     }
     
     func searchRecipes(ingredients: String, number: Int) {
-    //    let searchedIngredientsTrimmingWhiteSpaces = ingredients.split(separator: " ").joined(separator: "_")
+        //    let searchedIngredientsTrimmingWhiteSpaces = ingredients.split(separator: " ").joined(separator: "_")
         guard let url =
                 URL(string: "https://api.spoonacular.com/recipes/findByIngredients?apiKey=\(apiKey)&ingredients=tomatoes,cheese,corn&number=2") else {return}
         
@@ -50,7 +50,7 @@ class APICall: ObservableObject {
             }
             .store(in: &cancellables)
         
-        }
+    }
     
     func getRecipeDetails() {
         guard let url = URL(string: "https://api.spoonacular.com/recipes/657579/information?includeNutrition=true&apiKey=\(apiKey)") else {return}
@@ -73,7 +73,7 @@ class APICall: ObservableObject {
             }
             .store(in: &cancellables)
         
-        }
+    }
     
     func getRecipeSummary(id: Int) {
         guard let url = URL(string: "https://api.spoonacular.com/recipes/657579/summary?apiKey=\(apiKey)") else {return}
@@ -98,18 +98,18 @@ class APICall: ObservableObject {
             }
             .store(in: &cancellables)
         
-        }
+    }
+}
+
+
+func handleOutput(output: URLSession.DataTaskPublisher.Output) throws -> Data {
+    guard
+        let response = output.response as? HTTPURLResponse,
+        response.statusCode >= 200 && response.statusCode < 300 else {
+        throw URLError(.badServerResponse)
     }
     
+    return output.data
     
-    func handleOutput(output: URLSession.DataTaskPublisher.Output) throws -> Data {
-        guard
-            let response = output.response as? HTTPURLResponse,
-            response.statusCode >= 200 && response.statusCode < 300 else {
-            throw URLError(.badServerResponse)
-        }
-        
-        return output.data
-        
-    }
-    
+}
+

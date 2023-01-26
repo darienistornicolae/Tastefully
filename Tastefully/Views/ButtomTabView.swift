@@ -14,30 +14,30 @@ struct ButtomTabView: View {
         UITabBar.appearance().backgroundColor = UIColor.init(Color.orange)
         UITabBar.appearance().barTintColor = UIColor.init(Color.orange)
         UITabBar.appearance().unselectedItemTintColor = UIColor.darkGray
-
+        
     }
     var body: some View {
         
         
-            TabView {
-                    HomeScreenView()
-                        .tabItem {
-                            Image(systemName: "house.fill")
-                            Text("Home")
-                        }
-                RecipeDetailsView(viewModel: RecipesViewModel())
-                    .tabItem {
-                        Image(systemName: "square.and.arrow.down.fill")
-                        Text("Saved")
-                    }
-                
-                    ProfileView()
-                        .tabItem {
-                            Image(systemName: "person.fill")
-                            Text("Profile")
-                        }
+        TabView {
+            HomeScreenView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
                 }
-            .tint(.white)
+            RecipeDetailsView()
+                .tabItem {
+                    Image(systemName: "square.and.arrow.down.fill")
+                    Text("Saved")
+                }
+            
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person.fill")
+                    Text("Profile")
+                }
+        }
+        .tint(.white)
     }
 }
 

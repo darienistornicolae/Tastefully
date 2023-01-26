@@ -9,10 +9,7 @@ import SwiftUI
 
 struct RecipeDetailsView: View {
     
- @StateObject var viewModel: RecipeDetailsViewModel
-    init(viewModel: RecipesViewModel) {
-        self._viewModel = StateObject(wrappedValue: RecipeDetailsViewModel())
-    }
+    
     
     var body: some View {
         NavigationView {
@@ -20,25 +17,25 @@ struct RecipeDetailsView: View {
                 Color.backgroundColor.ignoresSafeArea(.all)
                 ScrollView {
                     VStack{
-                        AsyncImage(url: URL(string: viewModel.recipeImage))
+                        AsyncImage(url: URL(string: "viewModel.recipeImage"))
                             .scaledToFill()
                             .cornerRadius(10)
                             .padding(.top)
-                            
                         
-                        Text(viewModel.recipeTitle)
-                                .font(.title2)
-                                .fontWeight(.bold)
+                        
+                        Text("viewModel.recipeTitle")
+                            .font(.title2)
+                            .fontWeight(.bold)
                         
                         HStack {
-                            Text(viewModel.recipeDescription)
+                            Text("viewModel.recipeDescription")
                                 .multilineTextAlignment(.leading)
                                 .padding(.top)
-                                
-    
+                            
+                            
                         }
-                            Text("Ingredients used")
-                                .padding(.top)
+                        Text("Ingredients used")
+                            .padding(.top)
                         
                         
                     }
@@ -59,6 +56,6 @@ struct RecipeDetailsView: View {
 
 struct RecipeDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeDetailsView(viewModel: RecipesViewModel())
+        RecipeDetailsView()
     }
 }

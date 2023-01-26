@@ -38,7 +38,7 @@ struct FloatingTabBar: View {
             Spacer(minLength: 10)
             
             NavigationLink {
-                RecipeDetailsView(viewModel: RecipesViewModel())
+                RecipeDetailsView()
             } label: {
                 Image(systemName: "square.and.arrow.down.fill").foregroundColor(.white)
             }
@@ -49,7 +49,7 @@ struct FloatingTabBar: View {
             } label: {
                 Image(systemName: "person.fill").foregroundColor(.white)
             }
-
+            
         }   .padding(.vertical, 25)
             .padding(.horizontal, 35)
             .background(Color.baseColor)
