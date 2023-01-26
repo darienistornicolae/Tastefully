@@ -1,5 +1,5 @@
 //
-//  APICall.swift
+//  RecipesAPIService.swift
 //  Tastefully
 //
 //  Created by Darie-Nistor Nicolae on 14.12.2022.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class APICall: ObservableObject {
+class RecipesAPIService {
     
     //MARK: Properties
     @Published var recipeDetails: RecipeDetailsModel
