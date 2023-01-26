@@ -22,9 +22,9 @@ class APICall: ObservableObject {
         self.recipes = [recipes]
         self.cancellables = cancellables
         self.recipeSummarized = recipeSummarized
-        searchRecipes(ingredients: "", number: 0)
-        getRecipeDetails()
-        getRecipeSummary(id:324 )
+//        searchRecipes(ingredients: "", number: 0)
+//        getRecipeDetails()
+//        getRecipeSummary(id:324 )
     }
     
     func searchRecipes(ingredients: String, number: Int) {
