@@ -25,8 +25,10 @@ struct HomeScreenView: View {
                             .fontWeight(.bold)
                             .padding(.top, 30)
                             .padding(.trailing, 250)
-                        
-                        
+                       
+//                     ForEach(RecipeCardView(viewModel: RecipesViewModel()), id: \.self) { recipe in
+//                            recipe
+//                        }
                         RecipeCardView(viewModel: RecipesViewModel())
                         Spacer()
                     }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RecipeCardView: View {
     @StateObject var viewModel: RecipesViewModel
+    var listings: [String] = ["malbec", "pinot noir", "rosu negru"]
     init(viewModel: RecipesViewModel) {
         self._viewModel = StateObject(wrappedValue: RecipesViewModel())
     }
@@ -27,14 +28,15 @@ struct RecipeCardView: View {
                             Text(viewModel.recipeTitle)
                                 .font(.subheadline)
                                 .fontWeight(.bold)
-                                
-                                
-                            Text(viewModel.recipeDescription)
-                                .fontWeight(.bold)
                             
-                                Text("Pairing")
+                            HStack {
+                                ForEach(viewModel.paierdWine, id: \.self) { wine in
+                                    Text(wine)
+                                        .fontWeight(.bold)
+                                        .font(.caption)
+                                }
+                            }
                             
-                                .fontWeight(.bold)
                         }
                         Spacer()
                     }
@@ -48,6 +50,9 @@ struct RecipeCardView: View {
                 
             )
             .frame(width: 360, height: 150)
+            .onAppear{
+              viewModel.setupRecipes()
+            }
     }
 }
 

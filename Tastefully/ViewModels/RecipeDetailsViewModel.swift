@@ -1,20 +1,21 @@
 //
-//  RecipesViewModel.swift
+//  RecipeDetailsViewModel.swift
 //  Tastefully
 //
-//  Created by Darie-Nistor Nicolae on 16.12.2022.
+//  Created by Darie-Nistor Nicolae on 25.01.2023.
 //
 
 import Foundation
 import Combine
 
-class RecipesViewModel: ObservableObject {
+class RecipeDetailsViewModel: ObservableObject {
     
     // MARK: Properties
     var cancellables = Set<AnyCancellable>()
     @Published var recipeTitle: String = ""
     @Published var recipeImage: String = ""
-    @Published var paierdWine: [String] = [""]
+    @Published var recipeDescription: String = ""
+    @Published var summary: String = ""
     
     let apiService = APICall(recipes: SearchRecipeByIngredientsModelElement(
         id: 0,
@@ -27,14 +28,11 @@ class RecipesViewModel: ObservableObject {
                                 id: 0, title: "", image: "", readyInMinutes: 0, healthScore: 0, glutenFree: false, instructions: "", vegetarian: false, veryHealthy: false, dishTypes: [""], extendedIngredients: [ExtendedIngredient](), summary: "", winePairing: WinePairing(pairedWines: [""], pairingText: "")),
                              recipeSummarized: SummarizedRecipeModel(id: 0, summary: "", title: ""))
     
-    @Published var isSearching: Bool = false
-    
     init() {
-        
+       // printRecipeDescription()
     }
-
     
-    func setupRecipes() {
+    func printRecipeDescription() {
         apiService.$recipes
             .map { title in
                 var mealTitle = title.first?.title
@@ -55,16 +53,23 @@ class RecipesViewModel: ObservableObject {
             }
             .store(in: &cancellables)
         
-        apiService.$recipeDetails
-            .map { wine in 
-                return wine.winePairing.pairedWines
+        apiService.$recipeSummarized
+            .map { description in
+                var recipeSummary = description.summary
+                return recipeSummary
             }
-            .sink { [weak self] wine in
-                self?.paierdWine = wine
+            .sink { [weak self] newString in
+                self?.recipeDescription = newString
             }
-            .store(in: &cancellables)  
-        }
-    
+            .store(in: &cancellables)
+        
+        apiService.$recipeSummarized
+            .map { summary in
+                return summary.summary
+            }
+            .sink { [weak self] summary in
+                self?.summary = summary
+            }
+            .store(in: &cancellables)
     }
-    
-   
+}

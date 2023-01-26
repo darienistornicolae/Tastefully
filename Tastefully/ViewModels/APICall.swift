@@ -15,7 +15,7 @@ class APICall: ObservableObject {
     @Published var recipes: [SearchRecipeByIngredientsModelElement] = []
     @Published var recipeSummarized: SummarizedRecipeModel
     var cancellables = Set<AnyCancellable>()
-    private let apiKey = "e4d7f1e3dd884f1fa575e12697f19d33"
+    private let apiKey = "2ee7e33fb5954e30a49382948c15d24a" //"e4d7f1e3dd884f1fa575e12697f19d33"
     
     init(recipes: SearchRecipeByIngredientsModelElement, cancellables: Set<AnyCancellable> = Set<AnyCancellable>(), recipeDetails: RecipeDetailsModel, recipeSummarized: SummarizedRecipeModel) {
         self.recipeDetails = recipeDetails
@@ -23,7 +23,7 @@ class APICall: ObservableObject {
         self.cancellables = cancellables
         self.recipeSummarized = recipeSummarized
         searchRecipes(ingredients: "", number: 0)
-       getRecipeDetails()
+        getRecipeDetails()
         getRecipeSummary(id:324 )
     }
     

@@ -9,9 +9,9 @@ import SwiftUI
 
 struct RecipeDetailsView: View {
     
- @StateObject var viewModel: RecipesViewModel
+ @StateObject var viewModel: RecipeDetailsViewModel
     init(viewModel: RecipesViewModel) {
-        self._viewModel = StateObject(wrappedValue: RecipesViewModel())
+        self._viewModel = StateObject(wrappedValue: RecipeDetailsViewModel())
     }
     
     var body: some View {
@@ -26,12 +26,12 @@ struct RecipeDetailsView: View {
                             .padding(.top)
                             
                         
-                            Text(viewModel.recipeTitle)
+                        Text(viewModel.recipeTitle)
                                 .font(.title2)
                                 .fontWeight(.bold)
                         
                         HStack {
-                            Text("viewModel.recipeDescriptionviewModel")
+                            Text(viewModel.recipeDescription)
                                 .multilineTextAlignment(.leading)
                                 .padding(.top)
                                 
@@ -48,6 +48,9 @@ struct RecipeDetailsView: View {
                 .toolbarBackground(Color.orange, for: .automatic)
                 .toolbarBackground(.visible, for: .automatic)
                 .multilineTextAlignment(.trailing)
+                .onAppear {
+                    //  viewModel.printRecipeDescription()
+                }
                 
             }
         }
