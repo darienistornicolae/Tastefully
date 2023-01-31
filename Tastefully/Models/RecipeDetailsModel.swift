@@ -20,6 +20,15 @@ struct RecipeDetailsModel: Codable, Identifiable, Hashable {
     let extendedIngredients: [ExtendedIngredient]
     let summary: String
     let winePairing: WinePairing
+    
+    
+    static func mockDetails1() -> RecipeDetailsModel {
+        RecipeDetailsModel(id: 0, title: "Tomatoes", image: "", readyInMinutes: 6, healthScore: 9, glutenFree: true, instructions: "", vegetarian: true, veryHealthy: true, dishTypes: [""], extendedIngredients: [ExtendedIngredient(amount: 33, id: 0, image: "", name: "", original: "", originalName: "", unit: "")], summary: "ddsasdasdd", winePairing: WinePairing(pairedWines: [""], pairingText: ""))
+    }
+    
+    static func mockDetails2() -> RecipeDetailsModel {
+        RecipeDetailsModel(id: 0, title: "Potatoes", image: "", readyInMinutes: 2, healthScore: 92, glutenFree: false, instructions: "", vegetarian: false, veryHealthy: true, dishTypes: [""], extendedIngredients: [ExtendedIngredient(amount: 22, id: 0, image: "", name: "", original: "", originalName: "", unit: "")], summary: "lorem ipsum", winePairing: WinePairing(pairedWines: [""], pairingText: ""))
+    }
 }
 
 // MARK: - ExtendedIngredient
@@ -28,7 +37,7 @@ struct ExtendedIngredient: Codable, Hashable {
     //    let consitency: Consitency
     let id: Int
     let image: String
-    let measures: Measures
+   // let measures: Measures
     let name, original, originalName, unit: String
 }
 
@@ -38,9 +47,9 @@ struct ExtendedIngredient: Codable, Hashable {
 //}
 
 // MARK: - Measures
-struct Measures: Codable, Hashable {
-    let metric, us: Metric
-}
+//struct Measures: Codable, Hashable {
+//    let metric, us: Metric
+//}
 
 // MARK: - Metric
 struct Metric: Codable, Hashable {

@@ -1,14 +1,14 @@
 //
-//  HomeScreenView.swift
+//  SavedRecipesView.swift
 //  Tastefully
 //
-//  Created by Darie-Nistor Nicolae on 13.12.2022.
+//  Created by Darie-Nistor Nicolae on 31.01.2023.
 //
 
 import SwiftUI
 
-struct HomeScreenView: View {
-    @StateObject var viewModel = HomeScreenViewModel()
+struct SavedRecipesView: View {
+    @StateObject var viewModel = SavedRecipesViewModel()
     var body: some View {
         NavigationView {
             
@@ -17,12 +17,11 @@ struct HomeScreenView: View {
                 Color.backgroundColor.ignoresSafeArea(.all)
                 ScrollView {
                     VStack {
-                        Text("Recipes")
+                        Text("Favourites Recipes")
                             .padding(.top, 23)
-                            .padding(.trailing, 245)
+                            .padding(.trailing, 100)
                             .font(.title)
                             .fontWeight(.bold)
-                            .multilineTextAlignment(.trailing)
                         
                         ForEach(viewModel.recipes, id: \.self) { recipe in
                             RecipeCardView(recipe: recipe)
@@ -46,17 +45,8 @@ struct HomeScreenView: View {
     }
 }
 
-struct HomeScreenView_Previews: PreviewProvider {
+struct SavedRecipesView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeScreenView()
+        SavedRecipesView()
     }
 }
-
-
-fileprivate extension HomeScreenView {
-    var recipeContainer: some View {
-        Text("Sad")
-        
-    }
-}
-

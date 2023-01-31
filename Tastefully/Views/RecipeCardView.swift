@@ -16,23 +16,42 @@ struct RecipeCardView: View {
     
     var body: some View {
         VStack() {
-            HStack() {
-                AsyncImage(url: URL(string: recipe.image))
-                    .scaledToFill()
-                    .frame(width: 150, height: 150)
-                    .cornerRadius(20)
-                Spacer()
-                
-                HStack {
-                    VStack(alignment: .leading, spacing: 40) {
-                        Text(recipe.title)
-                            .font(.subheadline)
-                            .fontWeight(.bold)
+            NavigationLink {
+                RecipeDetailsView()
+                    .navigationTitle(recipe.title)
+                    .navigationBarTitleDisplayMode(.inline)
+                    .toolbarBackground(Color.orange, for: .automatic)
+                    .toolbarBackground(.visible, for: .automatic)
+                    .multilineTextAlignment(.trailing)
+                    .toolbar {
+                        Button {
+                            print("saved")
+                        } label: {
+                            Label("Save", systemImage: "heart.fill")
+                        }
                         
                     }
+            } label: {
+                HStack() {
+                    AsyncImage(url: URL(string: recipe.image))
+                        .scaledToFill()
+                        .frame(width: 150, height: 150)
+                        .cornerRadius(20)
                     Spacer()
+                    
+                    HStack {
+                        VStack(alignment: .leading, spacing: 40) {
+                            Text(recipe.title)
+                                .font(.subheadline)
+                                .fontWeight(.bold)
+                            
+                        }
+                        Spacer()
+                    }
                 }
             }
+
+            
         }
         .overlay(
             RoundedRectangle(cornerRadius: 20)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RecipeDetailsView: View {
     
-    
+    @StateObject var viewModel = RecipeDetailsViewModel()
     
     var body: some View {
         NavigationView {
@@ -17,37 +17,31 @@ struct RecipeDetailsView: View {
                 Color.backgroundColor.ignoresSafeArea(.all)
                 ScrollView {
                     VStack{
-                        AsyncImage(url: URL(string: "viewModel.recipeImage"))
+                        AsyncImage(url: URL(string: viewModel.recipesDetails.image))
                             .scaledToFill()
                             .cornerRadius(10)
                             .padding(.top)
                         
                         
-                        Text("viewModel.recipeTitle")
+                        Text(viewModel.recipesDetails.title)
                             .font(.title2)
                             .fontWeight(.bold)
                         
                         HStack {
-                            Text("viewModel.recipeDescription")
+                            Text(viewModel.recipesDetails.summary)
                                 .multilineTextAlignment(.leading)
                                 .padding(.top)
                             
                             
                         }
-                        Text("Ingredients used")
+                        Text(viewModel.recipesDetails.extendedIngredients.description)
                             .padding(.top)
                         
                         
                     }
                 }
-                .navigationTitle("Tastefully")
-                .navigationBarTitleDisplayMode(.inline)
-                .toolbarBackground(Color.orange, for: .automatic)
-                .toolbarBackground(.visible, for: .automatic)
-                .multilineTextAlignment(.trailing)
-                .onAppear {
-                    //  viewModel.printRecipeDescription()
-                }
+                
+                
                 
             }
         }

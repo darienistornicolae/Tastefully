@@ -25,7 +25,7 @@ struct ButtomTabView: View {
                     Image(systemName: "house.fill")
                     Text("Home")
                 }
-            RecipeDetailsView()
+            SavedRecipesView()
                 .tabItem {
                     Image(systemName: "square.and.arrow.down.fill")
                     Text("Saved")
@@ -33,8 +33,8 @@ struct ButtomTabView: View {
             
             ProfileView()
                 .tabItem {
-                    Image(systemName: "person.fill")
-                    Text("Profile")
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
                 }
         }
         .tint(.white)
