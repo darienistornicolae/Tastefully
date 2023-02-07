@@ -11,6 +11,7 @@ struct RecipeDetailsView: View {
     
     @StateObject var viewModel = RecipeDetailsViewModel()
     
+    
     var body: some View {
         NavigationView {
             ZStack {

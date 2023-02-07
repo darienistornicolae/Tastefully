@@ -12,6 +12,7 @@ class RecipeDetailsViewModel: ObservableObject {
     
     
     init() {
-        self.recipesDetails = .mockDetails1()      
+        self.recipesDetails = .mockDetails1()
+        
     }
 }

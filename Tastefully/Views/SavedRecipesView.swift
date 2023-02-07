@@ -7,8 +7,20 @@
 
 import SwiftUI
 
+class Favorites: ObservableObject {
+    @Published var items: [String]
+    
+    init() {
+        self.items = []
+    }
+}
+    
+
 struct SavedRecipesView: View {
-    @StateObject var viewModel = SavedRecipesViewModel()
+  //  @StateObject var viewModel = SavedRecipesViewModel()
+    //chatGPT - metoda data de GPT merge, dar numa text, l-am rugat sa-mi arate in view si a dat crash GPT-ul :))
+    @EnvironmentObject var favorites: Favorites
+    
     
     // TODO: Show saved recipes
     var body: some View {
@@ -25,10 +37,9 @@ struct SavedRecipesView: View {
                             .font(.title)
                             .fontWeight(.bold)
                         
-                        ForEach(viewModel.recipes, id: \.self) { recipe in
-                            RecipeCardView(recipe: recipe)
-                                .padding(.top, 10)
-                            
+                      
+                        ForEach(favorites.items, id: \.self) { recipe in
+                            Text(recipe)
                         }
                         
                         Spacer()

@@ -9,6 +9,10 @@ import SwiftUI
 
 struct RecipeCardView: View {
      let recipe: RecipeModel
+ //   @StateObject var viewModel = SavedRecipesViewModel()
+    //ChatGPT
+    @State var isFav: Bool = false
+    @EnvironmentObject var favorites: Favorites
    
     init(recipe: RecipeModel) {
         self.recipe = recipe
@@ -25,9 +29,17 @@ struct RecipeCardView: View {
                     .multilineTextAlignment(.trailing)
                     .toolbar {
                         Button {
-                            print("saved")
+                            //chatGPT
+                            self.isFav.toggle()
+
+                            if self.isFav {
+                                self.favorites.items.append("Screen 1")
+                            } else {
+                                self.favorites.items.removeAll { $0 == "Screen 1" }
+                            }
                         } label: {
-                            Label("Save", systemImage: "heart.fill")
+                            Label("Save", systemImage: isFav ?  "heart.fill" : "heart")
+                                
                         }
                         
                     }
