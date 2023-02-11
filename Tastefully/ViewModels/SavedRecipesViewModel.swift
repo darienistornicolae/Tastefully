@@ -8,36 +8,14 @@
 import Foundation
 
 class SavedRecipesViewModel: ObservableObject {
-    //Aici ii totul de la tutorial
-    @Published var recipes = [RecipeModel]()
-    @Published var showingFavs = false
-    @Published var savedRecipe: Set<String> = ["sss","fff "]
-    var filteredRecipes: [RecipeModel] {
-        if showingFavs {
-            return recipes.filter { savedRecipe.contains($0.title)}
-        } else {
-            return recipes
-        }
-    }
     
-    private var dataBase = Database()
+    @Published var savedIds = Set<Int>()
     
-    init() {
-        self.savedRecipe = dataBase.load()
-        self.recipes = [RecipeModel.mock1(), RecipeModel.mock2()]
-    }
+    init() {}
     
-    func contains(_ item: RecipeModel) -> Bool {
-        savedRecipe.contains(item.title)
+    func onAppear() {
+        self.savedIds = Database.shared.savedRecipeId
     }
-    
-    func toggleFav(item: RecipeModel) {
-        if contains(item) {
-            savedRecipe.remove(item.title)
-        } else {
-            savedRecipe.insert(item.title)
-        }
-        dataBase.save(item: savedRecipe)
-    }
+
     
 }

@@ -23,11 +23,11 @@ struct RecipeDetailsModel: Codable, Identifiable, Hashable {
     
     
     static func mockDetails1() -> RecipeDetailsModel {
-        RecipeDetailsModel(id: 0, title: "Tomatoes", image: "", readyInMinutes: 6, healthScore: 9, glutenFree: true, instructions: "", vegetarian: true, veryHealthy: true, dishTypes: [""], extendedIngredients: [ExtendedIngredient(amount: 33, id: 0, image: "", name: "", original: "", originalName: "", unit: "")], summary: "ddsasdasdd", winePairing: WinePairing(pairedWines: [""], pairingText: ""))
+        RecipeDetailsModel(id: 2, title: "Tomatoes", image: "", readyInMinutes: 6, healthScore: 9, glutenFree: true, instructions: "", vegetarian: true, veryHealthy: true, dishTypes: [""], extendedIngredients: [ExtendedIngredient(amount: 33, id: 0, image: "", name: "", original: "", originalName: "", unit: "")], summary: "ddsasdasdd", winePairing: WinePairing(pairedWines: [""], pairingText: ""))
     }
     
     static func mockDetails2() -> RecipeDetailsModel {
-        RecipeDetailsModel(id: 0, title: "Potatoes", image: "", readyInMinutes: 2, healthScore: 92, glutenFree: false, instructions: "", vegetarian: false, veryHealthy: true, dishTypes: [""], extendedIngredients: [ExtendedIngredient(amount: 22, id: 0, image: "", name: "", original: "", originalName: "", unit: "")], summary: "lorem ipsum", winePairing: WinePairing(pairedWines: [""], pairingText: ""))
+        RecipeDetailsModel(id: 4, title: "Potatoes", image: "", readyInMinutes: 2, healthScore: 92, glutenFree: false, instructions: "", vegetarian: false, veryHealthy: true, dishTypes: [""], extendedIngredients: [ExtendedIngredient(amount: 22, id: 0, image: "", name: "", original: "", originalName: "", unit: "")], summary: "lorem ipsum", winePairing: WinePairing(pairedWines: [""], pairingText: ""))
     }
 }
 

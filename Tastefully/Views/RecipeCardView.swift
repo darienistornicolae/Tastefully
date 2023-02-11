@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct RecipeCardView: View {
-     let recipe: RecipeModel
- //   @StateObject var viewModel = SavedRecipesViewModel()
-    //ChatGPT
+    @StateObject var viewModel = SavedRecipesViewModel()
+   
+    let recipe: RecipeModel
     @State var isFav: Bool = false
-    @EnvironmentObject var favorites: Favorites
    
     init(recipe: RecipeModel) {
         self.recipe = recipe
@@ -22,27 +21,6 @@ struct RecipeCardView: View {
         VStack() {
             NavigationLink {
                 RecipeDetailsView()
-                    .navigationTitle(recipe.title)
-                    .navigationBarTitleDisplayMode(.inline)
-                    .toolbarBackground(Color.orange, for: .automatic)
-                    .toolbarBackground(.visible, for: .automatic)
-                    .multilineTextAlignment(.trailing)
-                    .toolbar {
-                        Button {
-                            //chatGPT
-                            self.isFav.toggle()
-
-                            if self.isFav {
-                                self.favorites.items.append("Screen 1")
-                            } else {
-                                self.favorites.items.removeAll { $0 == "Screen 1" }
-                            }
-                        } label: {
-                            Label("Save", systemImage: isFav ?  "heart.fill" : "heart")
-                                
-                        }
-                        
-                    }
             } label: {
                 HStack() {
                     AsyncImage(url: URL(string: recipe.image))
@@ -73,7 +51,6 @@ struct RecipeCardView: View {
             
         )
         .frame(width: 360, height: 150)
-        
     }
 }
 

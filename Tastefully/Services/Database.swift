@@ -6,18 +6,41 @@
 //
 
 import Foundation
-//de la tutorial
-//am testat cu datele de acolo, sa vad daca chiar merge la mine cu text, dupa aceea modificam la view.
-final class Database {
+
+class Database: ObservableObject {
+    //MARK: Properties
     private let FAV_KEY = "fav_key"
+    @Published var savedRecipeId: Set<Int> = []
     
-    func save(item: Set<String>) {
-        let array = Array(item)
+    
+    static let shared = Database()
+    
+    private init() {
+        load()
+    }
+    
+    
+    func save(items: Set<Int>) {
+        let array = Array(items)
         UserDefaults.standard.set(array, forKey: FAV_KEY )
     }
     
-    func load() -> Set<String> {
-        let array = UserDefaults.standard.array(forKey: FAV_KEY) as? [String] ?? [String]()
-        return Set(array)
+    func contains(_ recipeId: Int) -> Bool {
+        savedRecipeId.contains(recipeId)
     }
+    
+    func toggleFav(recipeId: Int) {
+        if contains(recipeId) {
+            savedRecipeId.remove(recipeId)
+        } else {
+            savedRecipeId.insert(recipeId)
+        }
+        save(items: savedRecipeId)
+    }
+    
+    private func load() {
+        let array = UserDefaults.standard.value(forKey: FAV_KEY) as? Array<Int> ?? Array<Int>()
+        savedRecipeId = Set(array)
+    }
+    
 }

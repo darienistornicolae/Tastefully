@@ -9,11 +9,9 @@ import SwiftUI
 
 @main
 struct TastefullyApp: App {
-    //chatGPT
-    let fav = Favorites()
     var body: some Scene {
         WindowGroup {
-            ButtomTabView().environmentObject(fav)
+            ButtomTabView()
                 .preferredColorScheme(.dark)
         }
     }
