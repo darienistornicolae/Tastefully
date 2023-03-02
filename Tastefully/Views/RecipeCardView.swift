@@ -11,7 +11,6 @@ struct RecipeCardView: View {
     @StateObject var viewModel = SavedRecipesViewModel()
    
     let recipe: RecipeModel
-    @State var isFav: Bool = false
    
     init(recipe: RecipeModel) {
         self.recipe = recipe

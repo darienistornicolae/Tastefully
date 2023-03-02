@@ -8,6 +8,7 @@
 import Foundation
 
 class Database: ObservableObject {
+    
     //MARK: Properties
     private let FAV_KEY = "fav_key"
     @Published var savedRecipeId: Set<Int> = []
